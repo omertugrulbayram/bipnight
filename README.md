@@ -6,10 +6,12 @@ Turkcell Geleceği Yazanlar **BiP Night 2026** tasarım gecesi için hazırlanan
 
 Telefon, tablet ve bilgisayarda çalışır. Kurulum gerektirmez.
 
-## ⚠️ Ekip için: dosyalar birlikte çalışır
-`index.html` tek başına gönderilirse BiP Kelime açılmaz, çünkü oyun `kelime-yeni.html` içinden yüklenir. Üç HTML dosyası **aynı klasörde** olmalı.
+## Ekip için: `index.html` tek başına çalışır
+`index.html` **tek dosyadır**: BiP Kelime oyunu ve hareket dili sayfası içine gömülü. Tek başına gönderilebilir, yanında başka dosya gerekmez (internet de gerekmez).
 
-Projeyi almanın iki yolu:
+`kelime-yeni.html` ve `hareket-dili.html` ayrıca duruyor; oyunu ya da hareket dilini tek başına açmak isteyen için.
+
+Projeyi almanın yolları:
 - **ZIP:** bu sayfada yeşil **Code** düğmesi → **Download ZIP** → klasörü çıkar → `index.html`'i aç.
 - **git:** `git clone https://github.com/omertugrulbayram/bipnight.git`
 
