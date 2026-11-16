@@ -167,9 +167,6 @@ body.off .offline{display:flex}
 .callpill{display:none;align-items:center;gap:8px;margin:0 12px 6px;padding:0 6px 0 12px;height:40px;border-radius:999px;background:var(--ok-300);color:#fff;font-size:13px;font-weight:600}
 .callpill.on{display:flex}
 .callpill .x{margin-left:auto;height:30px;padding:0 12px;border-radius:999px;background:rgba(0,0,0,.22);font-size:12px;font-weight:700;color:#fff}
-.pip{position:absolute;right:12px;bottom:262px;width:66px;height:88px;border-radius:14px;background:linear-gradient(160deg,#6363FF,#0051A5);display:none;place-items:center;font-size:28px;box-shadow:0 8px 20px rgba(18,18,18,.25);z-index:12;border:2px solid #fff}
-.pip.on{display:grid}
-.pip small{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:10px;color:#fff;font-weight:600}
 .board{display:grid;grid-template-columns:repeat(5,58px);gap:8px;justify-content:center;padding:4px 0 8px;perspective:600px}
 .tile{width:58px;height:58px;border-radius:8px;border:2px solid var(--g-400);background:var(--g-0);display:grid;place-items:center;font-size:25px;font-weight:700;position:relative}
 .tile.typed{border-color:var(--g-800);animation:tap .12s ease-out}
@@ -496,6 +493,55 @@ body.relax .timer svg,body.relax .timer small{display:none}
 .theme-seg{display:flex;background:var(--g-200);border-radius:10px;padding:3px;gap:3px}
 .theme-seg button{flex:1;height:36px;border-radius:8px;font-size:13px;font-weight:600;color:var(--g-800)}
 .theme-seg button.on{background:var(--g-0);color:var(--g-1000);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+
+/* meydan oku sayfası + karşılaştırma */
+.dim2{position:absolute;inset:0;background:rgba(18,18,18,.45);z-index:66;opacity:0;pointer-events:none;transition:opacity .3s}.dim2.on{opacity:1;pointer-events:auto}
+.dsheet{position:absolute;left:0;right:0;bottom:0;z-index:67;background:var(--g-0);border-radius:24px 24px 0 0;padding:10px 18px 30px;transform:translateY(105%);transition:transform .42s var(--ease);max-height:90%;overflow-y:auto;box-shadow:0 -8px 30px rgba(18,18,18,.16)}
+.dsheet.show{transform:none}
+.dsheet .grab{width:36px;height:5px;border-radius:3px;background:var(--g-400);margin:0 auto 8px}
+.dh{display:flex;align-items:center;justify-content:space-between;gap:8px}.dh h2{font-size:21px;flex:1}
+.dsub{font-size:13.5px;color:var(--g-800);line-height:1.45;margin:2px 0 12px}
+.dprev{display:flex;gap:12px;align-items:center;padding:12px;border-radius:16px;background:var(--q-100)}
+.dprev b{display:block;font-size:14px}.dprev small{display:block;font-size:13px;color:var(--g-800);margin-top:2px}.dprev .cta{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:700;color:var(--p-400)}
+.g5{display:grid;grid-template-columns:repeat(5,var(--s));gap:2px;flex:none}.g5 i{width:var(--s);height:var(--s);border-radius:2px}
+.dh4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-700);margin:16px 0 4px}
+.dr{display:flex;align-items:center;gap:12px;width:100%;padding:8px 0;border-top:1px solid var(--g-200);min-height:58px;text-align:left}
+.dr .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:21px;flex:none}
+.dr .nm{flex:1;min-width:0}.dr .nm b{display:block;font-size:15px}.dr .nm small{font-size:12.5px;color:var(--g-700)}
+.dr .ck{width:28px;height:28px;border-radius:50%;border:2px solid var(--g-500);display:grid;place-items:center;font-size:14px;font-weight:800;flex:none;transition:transform .15s}
+.dr.sel .ck{background:var(--p-400);border-color:var(--p-400);color:#fff;transform:scale(1.08)}
+.dr:disabled{opacity:.7}
+.dr .tagok{font-size:12px;font-weight:700;color:var(--ok-300);background:var(--ok-100);padding:4px 10px;border-radius:999px}
+.dr .cmp{height:36px;padding:0 14px;border-radius:999px;background:var(--q-100);color:var(--p-500);font-size:13px;font-weight:700;flex:none}
+.dsheet #dGo{margin-top:16px}.dsheet #dGo:disabled{background:var(--g-300);color:var(--g-700);cursor:not-allowed}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:start;margin-top:8px}
+.vcol{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:16px;border:1.5px solid var(--g-300);text-align:center}
+.vcol.win{border-color:var(--kelime-yanlisyer);background:color-mix(in srgb,var(--kelime-yanlisyer) 12%,transparent)}
+.vcol .av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:28px;position:relative}
+.vcol .crown{position:absolute;top:-16px;left:50%;margin-left:-11px;font-size:22px}
+.vcol b{font-size:15px}.vcol small{font-size:12.5px;color:var(--g-700)}
+.vcol .cnt{font-size:26px;font-weight:900;font-variant-numeric:tabular-nums}
+.vmid{align-self:center;font-size:20px;font-weight:900;color:var(--g-700)}
+.vsban{margin:14px 0 12px;padding:12px 14px;border-radius:14px;font-size:14.5px;font-weight:700;text-align:center}
+.vsban.w{background:#FFF3C4;color:#5A4500}.vsban.t{background:var(--q-100);color:var(--p-500)}.vsban.l{background:var(--g-200);color:var(--g-900)}
+.phone.dark .vsban.w{background:#4A3D10;color:#FFE38A}
+
+/* birebir sohbet + meydan okuma kartı + sonuç sayfası kapat */
+.pov{display:flex;gap:6px;padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--g-300)}
+.pov button{flex:1;height:34px;border-radius:999px;background:var(--g-200);font-size:12.5px;font-weight:600;color:var(--g-800)}
+.pov button.on{background:var(--g-1000);color:var(--g-0)}
+.bub.wide{max-width:88%}
+.dcard{display:flex;flex-direction:column;gap:7px;min-width:236px;padding-top:2px}
+.dcard .dt{font-size:11px;font-weight:800;letter-spacing:.05em;color:var(--p-500)}
+.dcard b{font-size:14.5px}
+.dcard .drow{display:flex;gap:12px;align-items:center;font-size:13px;line-height:1.4}
+.dcard .dlock{font-size:11.5px;color:var(--g-700)}
+.dcard .go{height:40px;border-radius:10px;background:var(--p-400);color:#fff;font-weight:700;font-size:14px;margin-top:2px}
+.dcard .go.sec{background:var(--g-0);color:var(--p-500);border:1.5px solid var(--q-150)}
+.sysmsg{align-self:center;max-width:84%;text-align:center;font-size:12.5px;color:var(--g-800);background:var(--bg);padding:8px 12px;border-radius:12px;margin:6px 0}
+.dmlink{display:inline-block;margin-top:8px;height:34px;padding:0 12px;border-radius:999px;background:var(--q-100);color:var(--p-500);font-size:13px;font-weight:700}
+.sheet .sclose{position:absolute;top:8px;right:10px;z-index:2}
+#r-dm{display:none}
 </style>
 </head>
 <body>
@@ -560,11 +606,11 @@ yerine koyar. -->
     <li data-s="open"><span><b>Kart oyuna dönüşür.</b> Kart büyür, 5 kutu tahtaya uçar.</span></li>
     <li data-s="prevent"><span><b>Hata önleme.</b> Sözlükte yoksa Gönder kapalı. Elenmiş harfte uyarı. Tekrar denemede uyarı.</span></li>
     <li data-s="call"><span><b>Kesintiye dayanıklı.</b> Arama gelir, süre durur. Reddedersen tek dokunuşla mesaj.</span></li>
-    <li data-s="together"><span><b>Birlikte çöz.</b> Aramadan oyuna dön: arkadaşın küçük pencerede, sonuç "birlikte" sayılır.</span></li>
     <li data-s="result"><span><b>Sonuç.</b> Puanın nedeni, kelime defteri, avatar seçimi (önce oyna, sonra profil).</span></li>
     <li data-s="streak"><span><b>Seri ve dondurucu.</b> Her gün oynamak seriyi uzatır (kazanmak şart değil). Kaçırılan gün dondurucuyla korunur; dondurucu oynayarak kazanılır, satın alınmaz.</span></li>
 <li data-s="notif"><span><b>Nazik bildirimler.</b> 12.00 yeni kelime, 20.00 seri hatırlatması (yalnız oynamadıysan), dondurucu, hedef, arkadaş. Günde en fazla 2, gece sessiz, suçlama yok; dokununca doğru ekrana.</span></li>
-    <li data-s="profil"><span><b>Profil.</b> Takma ad + avatar, oynanan / kazanma / seri, tahmin dağılımı (bugünkü çubuk vurgulu), rozetler, gizlilik anahtarları: numara ve gerçek ad hiçbir listede görünmez.</span></li>
+    <li data-s="dare"><span><b>Meydan oku.</b> Kişi seç; kelime değil yalnız renkler gider (spoiler yok). Kabul ve sonuç bildirimi, yan yana karşılaştırma. Seçim yokken Gönder kapalı, kişi başı günde 1.</span></li>
+<li data-s="profil"><span><b>Profil.</b> Takma ad + avatar, oynanan / kazanma / seri, tahmin dağılımı (bugünkü çubuk vurgulu), rozetler, gizlilik anahtarları: numara ve gerçek ad hiçbir listede görünmez.</span></li>
 <li data-s="a11y"><span><b>Herkes için.</b> Sesli mod, durum özeti, titreşim, büyük yazı, yüksek kontrast, süresiz mod; aramada görsel uyarı ve canlı altyazı.</span></li>
     <li data-s="back"><span><b>Sohbete dönüş.</b> Sonuç sohbete düşer, grup kartı açılır, liste rozeti "Bitti" olur.</span></li>
   </ol>
@@ -659,14 +705,13 @@ yerine koyar. -->
   <section class="view hidden" id="v-game" aria-label="BiP Kelime oyunu">
     <div class="g-head"><button class="ib" id="g-close" aria-label="Sohbete dön"><svg class="i"><use href="#i-close"/></svg></button><h3>BiP Kelime</h3><button class="ib" id="g-a11y" aria-label="Erişilebilirlik ayarları"><svg class="i"><use href="#i-a11y"/></svg></button><button class="ib" id="g-help" aria-label="Nasıl oynanır"><svg class="i" style="width:22px;height:22px"><use href="#i-help"/></svg></button></div>
     <div class="offline"><svg width="16" height="16"><use href="#i-wifi"/></svg>Çevrimdışı · sonucun bağlantı gelince gönderilir</div>
-    <div class="callpill" id="callpill"><svg width="16" height="16"><use href="#i-phone"/></svg><span id="callpillTxt">Ayşe ile aramada · birlikte</span><button class="x" id="pill-end">Bitir</button></div>
+    <div class="callpill" id="callpill"><svg width="16" height="16"><use href="#i-phone"/></svg><span id="callpillTxt">Ayşe ile aramada</span><button class="x" id="pill-end">Bitir</button></div>
     <div class="g-stat"><span class="gchip" id="tries">Tahmin 1 / 5</span>
       <span style="display:flex;gap:8px"><button class="voice" id="voice" aria-label="Sesle tahmin et"><svg width="20" height="20"><use href="#i-mic"/></svg></button><button class="voice" id="sumbtn" aria-label="Durumu özetle"><svg width="20" height="20"><use href="#i-list"/></svg></button></span>
       <span class="timer"><svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="11" fill="none" stroke="var(--g-300)" stroke-width="4"/><circle id="ring" cx="14" cy="14" r="11" fill="none" stroke="var(--p-400)" stroke-width="4" stroke-linecap="round" stroke-dasharray="69.1" stroke-dashoffset="69.1" transform="rotate(-90 14 14)"/></svg><span id="time">00:00</span><small>/ 5:00</small></span></div>
     <div class="board" id="board"></div>
     <div class="hintline"><span id="hint"></span></div>
-    <div class="nudge" id="nudge"><div style="flex:1"><b>Takıldın mı?</b>Kerem henüz oynamadı, ara ve birlikte çözün.</div><button class="go" id="nudge-go"><svg width="16" height="16"><use href="#i-phone"/></svg>Ara</button><button class="ib" id="nudge-x" aria-label="Kapat" style="width:36px;height:36px"><svg width="16" height="16"><use href="#i-close"/></svg></button></div>
-    <div class="pip" id="pip">🦉<small id="pipName">Ayşe</small></div>
+    <div class="nudge" id="nudge"><div style="flex:1"><b>Takıldın mı?</b>Durum özetine bak: bulunan, yeri yanlış ve elenen harfler tek yerde.</div><button class="go" id="nudge-go"><svg width="16" height="16"><use href="#i-list"/></svg>Özet</button><button class="ib" id="nudge-x" aria-label="Kapat" style="width:36px;height:36px"><svg width="16" height="16"><use href="#i-close"/></svg></button></div>
     <div class="toast" id="toast"><svg width="20" height="20" style="flex:none;color:var(--q-base)"><use href="#i-alert"/></svg><div id="toastText"></div></div>
     <div class="kbd off" id="kbd"></div>
     <div class="listen" id="listen"><div class="bars"><i></i><i></i><i></i><i></i><i></i></div><b>Dinliyorum…</b><span style="font-size:13px;opacity:.8">5 harfli kelimeyi söyle</span></div>
@@ -680,6 +725,7 @@ yerine koyar. -->
     </div>
     <div class="sheet" id="sheet">
       <div class="grab"></div>
+      <button class="ib sclose" id="r-close" aria-label="Kapat, göndermeden sohbete dön"><svg class="i"><use href="#i-close"/></svg></button>
       <h2 id="r-title">Harika!</h2>
       <div class="sub" id="r-sub"></div>
       <div class="score"><div><small>Bugünkü puanın</small><b id="r-score">0</b></div><div class="why" id="r-why"></div></div>
@@ -688,6 +734,7 @@ yerine koyar. -->
       <div class="streakbox" id="r-streak" data-open="v-streak" role="button" tabindex="0"></div>
       <button class="btn primary" id="r-send"><svg><use href="#i-share"/></svg>Sonucu sohbete gönder</button>
       <div class="row2"><button class="btn sec" id="r-dare"><svg><use href="#i-swords"/></svg>Meydan oku</button><button class="btn sec" id="r-leader"><svg><use href="#i-trophy"/></svg>Liderlik</button></div>
+      <button class="btn sec" id="r-dm"></button>
     </div>
     <div class="skc" id="skCele" role="dialog" aria-modal="true" aria-labelledby="skcT">
       <div class="skc-b">
@@ -713,10 +760,21 @@ yerine koyar. -->
       <div class="c-lbl"><button class="c-btn" aria-label="Mikrofon"><svg><use href="#i-mic"/></svg></button>Mikrofon</div>
       <div class="c-lbl"><button class="c-btn" aria-label="Kamera"><svg><use href="#i-cam"/></svg></button>Kamera</div>
       <div class="c-lbl"><button class="c-btn" id="c-cc" aria-label="Canlı altyazı" aria-pressed="false">CC</button>Altyazı</div>
-      <div class="c-lbl"><button class="c-btn game" id="c-together" aria-label="Birlikte çöz"><svg><use href="#i-game"/></svg></button>Birlikte çöz</div>
       <span class="c-sep"></span>
       <div class="c-lbl"><button class="c-end" id="c-end" aria-label="Aramayı bitir"><svg width="30" height="30"><use href="#i-end"/></svg></button>Bitir</div>
     </div>
+  </section>
+
+  <!-- BİREBİR SOHBET: meydan okumanın gittiği kişi, iki taraftan -->
+  <section class="view hidden" id="v-dm">
+    <div class="ch-head">
+      <button class="ib" data-back aria-label="Geri"><svg class="i"><use href="#i-back"/></svg></button>
+      <div class="ch-av" id="dmAv" style="background:var(--av-blue-bg);font-size:20px">🐧</div>
+      <div class="ch-who"><b id="dmName">Kerem Tunç</b><span id="dmSub">çevrimiçi</span></div>
+    </div>
+    <div class="pov" id="dmPov" role="tablist" aria-label="Kimin telefonundan"></div>
+    <div class="msgs" id="dmMsgs"></div>
+    <div class="composer"><span style="font-size:22px">☺</span><div class="f">Mesaj</div><div class="mic"><svg width="20" height="20"><use href="#i-mic"/></svg></div></div>
   </section>
 
   <!-- LİDERLİK -->
@@ -753,6 +811,7 @@ yerine koyar. -->
   </div>
 
   <div class="flash" id="flash"></div>
+<div class="dim2" id="dareDim"></div><div class="dsheet" id="dare" role="dialog" aria-modal="true" aria-labelledby="dareT"></div>
 <button class="notif" id="notif" aria-label="Bildirim"><span class="ni"><svg><use href="#logo-kelime"/></svg></span><span class="nt"><span class="nh"><b>BiP Kelime</b><small id="nWhen">şimdi</small></span><span id="nTitle"></span><span id="nBody"></span></span></button>
   <div class="scrim" id="scrim"></div>
   <div class="sr" aria-live="polite" id="sr"></div>
@@ -777,7 +836,7 @@ const FRIENDS = [
 ];
 
 let S, A, cur = 'v-list', stack = [];
-function freshGame() { return { row: 0, col: 0, grid: Array.from({ length: ROWS }, () => Array(COLS).fill('')), res: [], keys: {}, started: false, acc: 0, runFrom: 0, done: false, busy: false, together: false, result: null, nudged: false }; }
+function freshGame() { return { row: 0, col: 0, grid: Array.from({ length: ROWS }, () => Array(COLS).fill('')), res: [], keys: {}, started: false, acc: 0, runFrom: 0, done: false, busy: false, result: null, nudged: false }; }
 function freshApp() { return { avatar: '', online: true, noon: false, played: false, call: null, origin: 'v-chat', pending: [], streak: 5, freezes: 1, best: 12, week: ['p', 'p', 'f', 'p', 'p', 'p', 't'], remind: false, a11y: { voice: false, haptic: false, big: false, hc: matchMedia('(prefers-contrast: more)').matches, relax: false, flash: false, cc: false } }; }
 let K = 1; // telefon ölçeği (tablet/bilgisayarda ekrana sığdırma)
 
@@ -805,6 +864,7 @@ function go(id, back) {
   if (id === 'v-dict') renderDict();
   if (id === 'v-streak') renderStreak();
   if (id === 'v-profil') renderProfile();
+  if (id === 'v-dm') renderDm();
   if (id === 'v-list') { step('list'); renderList(); }
 }
 // BiP kopyasının içinde gömülü çalışma (?embed=chat|group): en dıştan geri = BiP'e dön.
@@ -813,7 +873,7 @@ function back() { const to = stack.pop(); if (!to && EMBED) { parent.postMessage
 function embedShow(v) {
   const id = v === 'group' ? 'v-group' : v === 'streak' ? 'v-streak' : v === 'leader' ? 'v-leader' : v === 'profil' ? 'v-profil' : 'v-chat';
   if (id === 'v-streak') renderStreak(); if (id === 'v-leader') renderLeader(); if (id === 'v-profil') renderProfile();
-  ['v-list', 'v-chat', 'v-group', 'v-leader', 'v-dict', 'v-streak', 'v-profil'].forEach((x) => $(x).classList.toggle('hidden', x !== id));
+  ['v-list', 'v-chat', 'v-group', 'v-leader', 'v-dict', 'v-streak', 'v-profil', 'v-dm'].forEach((x) => $(x).classList.toggle('hidden', x !== id));
   if (cur === 'v-game' || cur === 'v-call') { $(cur).classList.add('hidden'); $('kbd').classList.add('off'); pauseT(); }
   cur = id; stack = []; renderCard(); renderGroup(); step(id === 'v-group' ? 'group' : 'how'); focusView($(id));
   if (v === 'play' && !A.played && !A.noon) setTimeout(() => openGame($('card'), 'v-chat'), reduce ? 0 : 380);
@@ -828,7 +888,7 @@ $('r-islem').addEventListener('click', () => toast('<b>BiP İşlem</b> aynı oyu
 function renderList() {
   const b = $('b-kelime'), pv = $('pv-kelime');
   if (A.noon) { b.className = 'badge wait'; b.textContent = "12.00'de"; pv.textContent = 'Günün kelimesi 17 dk sonra'; }
-  else if (A.played) { b.className = 'badge done'; b.textContent = `✓ ${S.result.win ? S.result.tries : '–'}/5`; pv.textContent = S.result.win ? `${fmt(S.result.secs)}'de çözdün${S.together ? ' · birlikte' : ''}` : 'Yarın yeni kelime'; }
+  else if (A.played) { b.className = 'badge done'; b.textContent = `✓ ${S.result.win ? S.result.tries : '–'}/5`; pv.textContent = S.result.win ? `${fmt(S.result.secs)}'de çözdün` : 'Yarın yeni kelime'; }
   else if (S.started) { b.className = 'badge go'; b.textContent = `Devam et · ${S.row}/5`; pv.textContent = 'Kaldığın yerden, süren durdu'; }
   else { b.className = 'badge'; b.textContent = 'Oyna'; pv.textContent = 'Günün kelimesi hazır'; }
   const n = A.played ? 1 : 0; $('duoRing').style.strokeDashoffset = String(100.5 * (1 - n / 2));
@@ -841,7 +901,7 @@ function renderList() {
 /* ---------- grup canlı kartı ---------- */
 function renderGroup() {
   const list = FRIENDS.map((f) => ({ ...f }));
-  if (A.played && S.result) list.push({ n: 'Sen' + (S.together ? ' & Ayşe' : ''), av: A.avatar || '🦊', bg: 'orange', rows: S.res.map((r) => r.join('')), secs: S.result.secs, me: true, win: S.result.win });
+  if (A.played && S.result) list.push({ n: 'Sen', av: A.avatar || '🦊', bg: 'orange', rows: S.res.map((r) => r.join('')), secs: S.result.secs, me: true, win: S.result.win });
   $('solvers').innerHTML = list.map((f) => `<div class="solver${f.me ? ' me pop' : ''}"><span class="a" style="background:var(--av-${f.bg}-bg)">${f.av}</span><div class="n"><b>${f.n}</b><small>${f.win === false ? 'bulamadı' : f.rows.length + '/5'} · ${fmt(f.secs)}</small></div><div class="grid5">${f.rows.map((r) => [...r].map((x) => `<i style="background:${colorOf(x)}"></i>`).join('')).join('')}</div></div>`).join('');
   $('gwrap').classList.toggle('locked', !A.played);
   $('gmeta').textContent = `${list.length} / 5 kişi çözdü · kart canlı güncellenir`;
@@ -896,7 +956,7 @@ function press(k) {
   if (k === '⌫') { if (S.col > 0) { S.col--; S.grid[S.row][S.col] = ''; const t = tileAt(S.col); t.textContent = ''; t.className = 'tile'; markCursor(); checkRow(); } return; }
   if (S.col >= COLS || !/^[A-ZÇĞİÖŞÜI]$/.test(k)) return;
   if (!S.started) { S.started = true; S.runFrom = Date.now(); }
-  step(S.together ? 'together' : 'prevent');
+  step('prevent');
   S.grid[S.row][S.col] = k; const t = tileAt(S.col); t.textContent = k; t.className = 'tile typed';
   if (S.keys[k] === 'n') { t.classList.add('gray'); hint(`${k} kelimede yok · yine de deneyebilirsin`, 'soft'); }
   S.col++; markCursor(); checkRow();
@@ -924,7 +984,7 @@ async function submit() {
   if (win) { await bounce(tiles); finish(true); return; }
   if (S.row >= ROWS) { finish(false); return; }
   markCursor();
-  if (S.row === 3 && !S.together && !S.nudged) { S.nudged = true; $('nudge').classList.add('on'); }
+  if (S.row === 3 && !S.nudged) { S.nudged = true; $('nudge').classList.add('on'); }
 }
 function flip(t, code, ch) {
   const sm = t.classList.contains('sm') ? ' sm' : '';
@@ -947,9 +1007,9 @@ function finish(win, timeout) {
   if (S.done) return; pauseT(); S.done = true; step('result'); $('nudge').classList.remove('on'); hint('');
   const secs = elapsed(), tries = win ? S.row : ROWS, pts = win ? Math.max(100, 1000 - (tries - 1) * 100 - (A.a11y.relax ? 0 : Math.floor(secs / 2))) : 0;
   S.result = { win, tries, secs, pts };
-  $('r-title').textContent = win ? (S.together ? 'Birlikte çözdünüz! 🤝' : 'Harika, bildin!') : timeout ? 'Süre doldu' : 'Bu sefer olmadı';
+  $('r-title').textContent = win ? 'Harika, bildin!' : timeout ? 'Süre doldu' : 'Bu sefer olmadı';
   $('r-sub').innerHTML = win ? `${tries}. tahminde · ${fmt(secs)}` : `Bugünün kelimesi <b>${TARGET}</b> · serin korunuyor`;
-  $('r-why').innerHTML = !win ? 'Yarın 12.00\'de yeni kelime' : S.together ? 'Birlikte çözüm<br>liderlikte ayrı listelenir' : `1000 başlangıç<br>−${(tries - 1) * 100} tahmin · −${Math.floor(secs / 2)} süre`;
+  $('r-why').innerHTML = !win ? 'Yarın 12.00\'de yeni kelime' : `1000 başlangıç<br>−${(tries - 1) * 100} tahmin · −${Math.floor(secs / 2)} süre`;
   $('avpick').style.display = A.avatar ? 'none' : 'flex';
   const prevStreak = A.streak; let gained = false;
   if (A.week[6] !== 'p') { A.week[6] = 'p'; A.streak++; A.best = Math.max(A.best, A.streak); if (A.streak % 7 === 0 && A.freezes < 2) { A.freezes++; gained = true; } }
@@ -959,7 +1019,7 @@ function finish(win, timeout) {
     const el = $('r-score'); if (reduce) el.textContent = pts; else { const t0 = performance.now(); const tick = (now) => { const k = Math.min(1, (now - t0) / 900); el.textContent = Math.round(pts * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }
   };
   if (prevStreak !== A.streak) setTimeout(() => celebrate(prevStreak, gained).then(showSheet), reduce ? 0 : 450); else showSheet();
-  if (win && A.a11y.relax && !S.together) $('r-why').innerHTML = `Rahat mod: süre sayılmaz<br>−${(tries - 1) * 100} tahmin · "rahat" etiketi`;
+  if (win && A.a11y.relax) $('r-why').innerHTML = `Rahat mod: süre sayılmaz<br>−${(tries - 1) * 100} tahmin · "rahat" etiketi`;
   const msg = win ? `Tebrikler, ${tries}. tahminde çözdün. ${pts} puan.` : `Bu sefer olmadı. Bugünün kelimesi ${TARGET}.`;
   say(msg); speak(msg); buzz(win ? [80, 60, 80, 60, 200] : [200]);
   if (win && A.a11y.voice) { tone(523, .14); tone(659, .14, .14); tone(784, .3, .28); }
@@ -993,7 +1053,7 @@ async function closeGame(send) {
   pauseT(); $('sheet').classList.remove('show'); $('dim').classList.remove('on'); $('kbd').classList.add('off'); $('nudge').classList.remove('on');
   const g = $('v-game'); await g.animate([{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(.94)' }], { duration: reduce ? 1 : 260, easing: 'ease-in' }).finished;
   g.classList.add('hidden'); const to = stack.pop() || A.origin; cur = to; $(to).classList.remove('hidden');
-  if (S.done) { A.played = true; if (A.call) endCall(true); if (EMBED) parent.postMessage({ bip: 'played', win: S.result.win, tries: S.result.tries, secs: S.result.secs, together: S.together, streak: A.streak, freezes: A.freezes }, '*'); }
+  if (S.done) { A.played = true; if (A.call) endCall(true); if (EMBED) parent.postMessage({ bip: 'played', win: S.result.win, tries: S.result.tries, secs: S.result.secs, streak: A.streak, freezes: A.freezes }, '*'); }
   if (send && S.result) { step('back'); sendResult(); }
   renderCard(); if (to === 'v-group') renderGroup(); if (to === 'v-list') renderList();
 }
@@ -1002,7 +1062,7 @@ function sendResult() {
   const cells = S.res.map((row) => row.map((x) => `<i style="background:${colorOf(x)}"></i>`).join('')).join('');
   const b = document.createElement('div'); b.className = 'bub out pop res-msg';
   const meta = A.online ? '12:06 ✓✓' : '⏱ bağlantı bekleniyor';
-  b.innerHTML = r.win ? `${A.avatar ? `<span class="mav">${A.avatar}</span>` : ''} BiP Kelime · 16 Kasım${S.together ? ' · Ayşe ile' : ''}<div class="grid5">${cells}</div><b>${r.tries}/5 · ${fmt(r.secs)} · ${r.pts} puan</b><span class="t">${meta}</span>` : `Bugünkü kelimeyi bulamadım, yarın tekrar 💪<span class="t">${meta}</span>`;
+  b.innerHTML = r.win ? `${A.avatar ? `<span class="mav">${A.avatar}</span>` : ''} BiP Kelime · 16 Kasım<div class="grid5">${cells}</div><b>${r.tries}/5 · ${fmt(r.secs)} · ${r.pts} puan</b><span class="t">${meta}</span>` : `Bugünkü kelimeyi bulamadım, yarın tekrar 💪<span class="t">${meta}</span>`;
   if (!A.online) A.pending.push(b);
   $('msgs').appendChild(b); $('msgs').scrollTop = $('msgs').scrollHeight;
 }
@@ -1016,15 +1076,10 @@ function incoming() {
 $('in-yes').addEventListener('click', () => { $('incoming').classList.remove('on'); pauseT(); A.call = { t0: Date.now(), secs: 0, with: 'Ayşe' }; $('kbd').classList.add('off'); go('v-call'); });
 $('in-no').addEventListener('click', () => { $('incoming').classList.remove('on'); toast('Arama reddedildi. Oyun devam ediyor.'); });
 $('in-msg').addEventListener('click', () => { $('incoming').classList.remove('on'); toast('<b>Ayşe\'ye gönderildi:</b> "Oyundayım, 2 dk\'ya ararım"'); });
-$('c-together').addEventListener('click', () => {
-  S.together = true; step('together'); go('v-game', true); $('kbd').classList.remove('off');
-  $('callpill').classList.add('on'); $('callpillTxt').textContent = `${A.call.with} ile aramada · birlikte`; $('pipName').textContent = A.call.with; $('pip').classList.add('on'); resumeT();
-  toast(`<b>${A.call.with} tahtayı görüyor.</b> Süre devam ediyor, sonuç "birlikte" sayılır.`);
-});
 $('c-end').addEventListener('click', () => { endCall(); go('v-game', true); $('kbd').classList.remove('off'); resumeT(); toast('<b>Arama bitti.</b> Süren durdu, kaldığın yerden devam.'); });
 $('pill-end').addEventListener('click', () => { endCall(); toast('<b>Arama bitti.</b> Oyun devam ediyor.'); });
-function endCall(silent) { A.call = null; $('callpill').classList.remove('on'); $('pip').classList.remove('on'); }
-$('nudge-go').addEventListener('click', () => { $('nudge').classList.remove('on'); pauseT(); A.call = { t0: Date.now(), secs: 0, with: 'Kerem' }; $('kbd').classList.add('off'); go('v-call'); document.querySelector('#v-call .c-top b').textContent = 'Kerem Tunç'; document.querySelector('#v-call .big').textContent = '🐧'; });
+function endCall(silent) { A.call = null; $('callpill').classList.remove('on'); }
+$('nudge-go').addEventListener('click', () => { $('nudge').classList.remove('on'); summary(); });
 $('nudge-x').addEventListener('click', () => $('nudge').classList.remove('on'));
 
 /* ---------- sesle tahmin ---------- */
@@ -1047,14 +1102,15 @@ const LBD = [
 ];
 const LBNOTE = [
   'Puan = 1000 − (tahmin − 1) × 100 − saniye ÷ 2. Eşit puanda önce çözen öne geçer.',
-  'Oda 214 grubunun listesi. Sonuçlar sen oynayınca açılır; birlikte çözümler etiketlidir.',
+  'Oda 214 grubunun listesi. Sonuçlar sen oynayınca açılır (spoiler kalkanı).',
   'Türkiye geneli · 4.763 oyuncu · takma adlar, gerçek ad ve numara görünmez. Her gece 00.00\'da sıfırlanır.',
 ];
 function renderLeader(anim = true) {
   const st = LB.by === 'st', world = LB.tab === 2, r = S.done && S.result ? S.result : null;
-  const me = { av: A.avatar || '🦊', bg: 'orange', n: 'Sen', me: 1, st: A.streak, tog: S.together };
+  const me = { av: A.avatar || '🦊', bg: 'orange', n: 'Sen', me: 1, st: A.streak };
   if (r && r.win) Object.assign(me, { t: r.tries, s: r.secs, p: r.pts }); else if (r) Object.assign(me, { lost: 1, p: 0 }); else me.none = 1;
-  const base = LBD[LB.tab].map((x) => ({ ...x }));
+  const dres = (A.dares && A.dares.res) || {};
+  const base = LBD[LB.tab].map((x) => (dres[x.n] ? { ...x, ...dres[x.n], none: 0 } : { ...x }));
   const pool = world ? base : [...base, me];
   const ranked = st ? [...pool].sort((a, b) => b.st - a.st) : pool.filter((x) => !x.none && !x.lost).sort((a, b) => b.p - a.p);
   const tail = st ? [] : pool.filter((x) => x.none || x.lost);
@@ -1062,7 +1118,7 @@ function renderLeader(anim = true) {
   const notYet = (x) => (x.me ? 'Bugün henüz oynamadın' : 'Bugün henüz oynamadı') + (x.st ? ` · 🔥 ${x.st} gün seri` : '');
   const sub = (x) => (x.none ? notYet(x) : st ? 'Bugün oynadı ✓' + (x.c ? ' · ' + x.c : '') : x.lost ? 'Bugün bulamadı · serisi sürüyor' : `${x.t} tahmin · ${fmt(x.s)}` + (x.c ? ' · ' + x.c : ''));
   const right = (x) => (x.none && !st ? (x.me ? '<button class="rm" id="lb-play">Oyna</button>' : LB.nudged.has(x.n) ? '<button class="rm ok" disabled>✓ Dürttün</button>' : `<button class="rm" data-nudge="${x.n}">👋 Dürt</button>`) : `<span class="pt${st ? ' st' : ''}">${val(x)}</span>`);
-  const row = (x, rk) => `<div class="lb-row${x.me ? ' me' : ''}"${x.none || x.lost ? ' style="opacity:.85"' : ''}><span class="rk">${rk}</span><span class="av" style="background:var(--av-${x.bg}-bg)">${x.av}</span><div class="nm"><b>${x.n}${x.tog ? '<span class="tag2">birlikte</span>' : ''}</b><small>${sub(x)}</small></div>${right(x)}</div>`;
+  const row = (x, rk) => `<div class="lb-row${x.me ? ' me' : ''}"${x.none || x.lost ? ' style="opacity:.85"' : ''}><span class="rk">${rk}</span><span class="av" style="background:var(--av-${x.bg}-bg)">${x.av}</span><div class="nm"><b>${x.n}</b><small>${sub(x)}</small></div>${right(x)}</div>`;
   const pod = ranked.slice(0, 3), medals = ['🥇', '🥈', '🥉'];
   const podium = pod.length ? `<div class="podium" aria-label="İlk üç">${[1, 0, 2].map((i) => pod[i] ? `<div class="pd p${i + 1}${pod[i].me ? ' me' : ''}"><span class="av" style="background:var(--av-${pod[i].bg}-bg)">${pod[i].av}<span class="md">${medals[i]}</span></span><b>${pod[i].n}</b><small${st ? ' style="color:var(--orange)"' : ''}>${val(pod[i])}</small><div class="bar">${i + 1}</div></div>` : '<div></div>').join('')}</div>` : '<div class="lb-empty">Bugün henüz kimse çözmedi. İlk sen ol!</div>';
   let meRow = '';
@@ -1102,7 +1158,6 @@ document.addEventListener('keydown', (e) => { if (cur !== 'v-game') return; if (
 $('r-send').addEventListener('click', () => closeGame(true));
 $('r-leader').addEventListener('click', () => closeGame(true).then(() => go('v-leader')));
 $('r-dict').addEventListener('click', () => closeGame(true).then(() => go('v-dict')));
-$('r-dare').addEventListener('click', () => toast('<b>Meydan okuma gönderildi.</b> Kerem aynı kelimeyle oynayacak.'));
 $('avpick').addEventListener('click', (e) => { const b = e.target.closest('[data-av]'); if (!b) return; A.avatar = b.dataset.av; $('avpick').querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b)); setTimeout(() => { $('avpick').style.display = 'none'; }, 600); });
 $('lb').addEventListener('click', (e) => {
   if (e.target.id === 'lb-play') { back(); setTimeout(() => $('play').click(), 380); return; }
@@ -1132,7 +1187,7 @@ const A11Y = [
   ['hc', 'Yüksek kontrast', 'Kalın kenarlar; klavye tuşlarında da ✓ ↔ × işaretleri. (Az gören, renk körü)'],
   ['relax', 'Rahat mod · süresiz', 'Süre tutulmaz, puan yalnız tahmin sayısından. Liderlikte "rahat" etiketiyle ayrı. (Ekran okuyucu kullanan herkes)'],
   ['flash', 'Görsel uyarılar', 'Gelen arama ve bildirimlerde ekran kenarı yanıp söner. (İşitme engelli)'],
-  ['cc', 'Canlı altyazı', 'Birlikte çözerken aramada konuşulanlar yazıya dökülür. (İşitme engelli)'],
+  ['cc', 'Canlı altyazı', 'Aramada konuşulanlar yazıya dökülür. (İşitme engelli)'],
 ];
 $('a11yList').innerHTML = A11Y.map(([k, t, d]) => `<label class="sw"><span><b>${t}</b><small>${d}</small></span><input type="checkbox" role="switch" data-a="${k}"><i></i></label>`).join('');
 function applyA11y() {
@@ -1314,6 +1369,9 @@ function notify(k) {
 }
 function hideNotif() { const el = $('notif'); el.classList.remove('on'); el.style.transform = ''; el.style.transition = ''; }
 function openFromNotif(g) {
+  if (g === 'none') return;
+  if (g === 'dm') { if (cur === 'v-game' || cur === 'v-call') { toast('Oyun açık; sohbet seni bekler.'); return; } return cur === 'v-dm' ? renderDm() : go('v-dm'); }
+  if (g.startsWith('vs:')) { renderVs(g.slice(3)); showDare(); return; }
   if (cur === 'v-game' || cur === 'v-call') { toast('Oyun açık; bildirim seni bekler.'); return; }
   if (g === 'streak') return cur === 'v-streak' ? renderStreak() : go('v-streak');
   if (g === 'leader') return cur === 'v-leader' ? renderLeader() : go('v-leader');
@@ -1339,7 +1397,7 @@ function renderProfile(anim = true) {
   const badges = [
     { e: '🌱', n: 'İlk kelime', d: '14 Ekim', on: 1 },
     { e: '🔥', n: '7 gün seri', d: `En uzun: ${A.best} gün`, on: 1 },
-    { e: '🤝', n: 'Birlikte çöz', d: S.together && r ? 'Bugün kazandın!' : 'Aramada arkadaşınla', on: S.together && r && r.win, nw: S.together && r },
+    { e: '🎧', n: 'Kulakla çöz', d: A.a11y.voice && r && r.win ? 'Bugün kazandın!' : 'Sesli modda bir kelime', on: A.a11y.voice && r && r.win, nw: A.a11y.voice && r },
     { e: '📖', n: 'Defter 25', d: `${words}/25 kelime`, p: words / 25 },
     { e: '🔥', n: '30 gün seri', d: `${A.streak}/30 gün`, p: A.streak / 30 },
     { e: '⚡', n: 'Tek tahmin', d: 'İlk denemede bul', p: 0 },
@@ -1389,7 +1447,7 @@ async function auto() {
   await type('KASL'); await wait(1700); for (let i = 0; i < 4; i++) { press('⌫'); await wait(80); }
   await type('KALIP'); await wait(300); press('↵'); await wait(1600); if (!ok()) return;
   incoming(); await wait(1800); $('in-yes').click(); await wait(2600); if (!ok()) return;
-  $('c-together').click(); await wait(2200);
+  $('c-end').click(); await wait(2200);
   await type('KALEM'); await wait(300); press('↵'); await wait(2600); if (!ok()) return;
   if ($('skCele').classList.contains('on')) { await wait(2600); $('skGo').click(); await wait(900); }
   $('avpick').querySelector('[data-av="🦊"]').click(); await wait(1200);
@@ -1399,7 +1457,7 @@ async function auto() {
 }
 function reset() {
   S = freshGame(); A = freshApp(); stack = [];
-  ['v-chat', 'v-group', 'v-game', 'v-call', 'v-leader', 'v-dict', 'v-streak', 'v-profil'].forEach((v) => $(v).classList.add('hidden')); $('skCele').classList.remove('on'); $('notif').classList.remove('on'); LB = { tab: 0, by: 'pt', nudged: new Set() }; $('v-list').classList.remove('hidden'); cur = 'v-list';
+  ['v-chat', 'v-group', 'v-game', 'v-call', 'v-leader', 'v-dict', 'v-streak', 'v-profil', 'v-dm'].forEach((v) => $(v).classList.add('hidden')); $('skCele').classList.remove('on'); $('notif').classList.remove('on'); $('dare').classList.remove('show'); $('dareDim').classList.remove('on'); $('r-dare').innerHTML = '<svg><use href="#i-swords"/></svg>Meydan oku'; $('r-dm').style.display = 'none'; DMPOV = 'me'; LB = { tab: 0, by: 'pt', nudged: new Set() }; $('v-list').classList.remove('hidden'); cur = 'v-list';
   $('sheet').classList.remove('show'); $('dim').classList.remove('on'); $('kbd').classList.add('off'); $('incoming').classList.remove('on'); $('nudge').classList.remove('on'); endCall(); $('sb').classList.remove('dark');
   document.querySelectorAll('.res-msg').forEach((x) => x.remove()); document.body.classList.remove('off'); ['sc-noon', 'sc-off'].forEach((x) => $(x).classList.remove('on'));
   $('demo').classList.remove('open'); $('avpick').style.display = 'flex'; $('avpick').querySelectorAll('button').forEach((x) => x.classList.remove('on'));
@@ -1409,6 +1467,142 @@ function reset() {
   closeA11y(); stopCC(); $('sumcard').classList.remove('on'); $('flash').classList.remove('on'); applyA11y();
   if ('speechSynthesis' in window) speechSynthesis.cancel();
 }
+/* ---------- meydan oku: kişi seç → spoilersız sonuç kartı gider → kabul / sonuç bildirimi → karşılaştırma ---------- */
+const DARE = [
+  { n: 'Kerem Tunç', av: '🐧', bg: 'blue', none: 1, reply: { t: 4, s: 132, p: 634, rows: ['nynnn', 'ydnny', 'dddnn', 'ddddd'] } },
+  { n: 'Can Öztürk', av: '🐸', bg: 'green', none: 1 },
+  { n: 'Elif Çelik', av: '🐱', bg: 'cream', t: 4, s: 95, p: 653, rows: ['nnynn', 'yddnn', 'ddddn', 'ddddd'] },
+  { n: 'Ayşe Yılmaz', av: '🦉', bg: 'purple', t: 3, s: 58, p: 950, rows: ['ydnny', 'dddnn', 'ddddd'] },
+];
+const g5 = (rows, sz) => `<div class="g5" style="--s:${sz}px" aria-hidden="true">${rows.map((r) => [...r].map((x) => `<i style="background:${colorOf(x)}"></i>`).join('')).join('')}</div>`;
+const dareState = () => (A.dares = A.dares || { sent: new Set(), res: {}, sel: new Set(), acc: new Set() });
+function dFriend(n) { const f = DARE.find((x) => x.n === n); const r = dareState().res[n]; return r ? { ...f, ...r, none: 0 } : f; }
+function showDare() { $('dareDim').classList.add('on'); $('dare').classList.add('show'); setTimeout(() => { const b = $('dare').querySelector('button'); if (b) b.focus({ preventScroll: true }); }, 380); }
+function hideDare() { $('dare').classList.remove('show'); $('dareDim').classList.remove('on'); }
+function renderDarePick() {
+  const d = dareState(), r = S.result, myRows = S.res.map((x) => x.join(''));
+  const msg = r && r.win ? `${r.tries}/5 · ${fmt(r.secs)} · ${r.pts} puan` : 'Ben bulamadım, sen bulabilir misin?';
+  const unplayed = DARE.filter((f) => dFriend(f.n).none), played = DARE.filter((f) => !dFriend(f.n).none);
+  const row = (f) => { const sent = d.sent.has(f.n), sel = d.sel.has(f.n);
+    return `<button class="dr${sel ? ' sel' : ''}" data-dsel="${f.n}" aria-pressed="${sel}" ${sent ? 'disabled' : ''}><span class="av" style="background:var(--av-${f.bg}-bg)">${f.av}</span><span class="nm"><b>${f.n}</b><small>${sent ? 'Meydan okuma gitti · cevap bekleniyor' : 'Bugün henüz oynamadı'}</small></span>${sent ? '<span class="tagok">✓ Gönderildi</span>' : `<span class="ck" aria-hidden="true">${sel ? '✓' : ''}</span>`}</button>`; };
+  const prow = (f) => { const x = dFriend(f.n), ahead = r && r.win && r.pts > x.p;
+    return `<div class="dr"><span class="av" style="background:var(--av-${f.bg}-bg)">${f.av}</span><span class="nm"><b>${f.n}</b><small>Bugün oynadı · ${x.p} puan${r && r.win ? (ahead ? ' · sen öndesin' : ' · o önde') : ''}</small></span><button class="cmp" data-dvs="${f.n}">Karşılaştır</button></div>`; };
+  const n = d.sel.size;
+  $('dare').innerHTML = `<div class="grab"></div>
+    <div class="dh"><h2 id="dareT">⚔️ Meydan oku</h2><button class="ib" data-dclose aria-label="Kapat"><svg class="i"><use href="#i-close"/></svg></button></div>
+    <p class="dsub">Aynı kelime, aynı kurallar. Kelime gitmez, yalnız renklerin gider: <b>spoiler yok.</b></p>
+    <div class="dprev">${g5(myRows.length ? myRows : ['nnnnn'], 9)}<div><b>tilki_34 sana meydan okuyor</b><small>${msg}</small><span class="cta">Sen de çöz →</span></div></div>
+    ${unplayed.length ? `<h4 class="dh4">Henüz oynamayanlar</h4>${unplayed.map(row).join('')}` : ''}
+    ${played.length ? `<h4 class="dh4">Bugün oynayanlar</h4>${played.map(prow).join('')}` : ''}
+    <button class="btn primary" id="dGo" ${n ? '' : 'disabled aria-disabled="true"'}>${n ? `Gönder · ${n} kişi` : 'Önce kişi seç'}</button>
+    <p class="note" style="padding:8px 0 0;text-align:center">Kişi başı günde 1 meydan okuma · ödül yok, yalnız eğlence</p>`;
+}
+function renderVs(name) {
+  const f = dFriend(name), r = S.result, myRows = S.res.map((x) => x.join(''));
+  const mine = r && r.win ? r.pts : 0, theirs = f.p || 0, win = mine > theirs, tie = mine === theirs, first = name.split(' ')[0];
+  const ban = win ? '🏆 Kazandın! Galibiyet profiline eklendi.' : tie ? '🤝 Berabere!' : `${first} bu sefer önde. Rövanş yarın 12.00'de.`;
+  const col = (who, av, bg, rows, line, pts, w) => `<div class="vcol${w ? ' win' : ''}"><span class="av" style="background:var(--av-${bg}-bg)">${av}${w ? '<span class="crown" aria-hidden="true">👑</span>' : ''}</span><b>${who}</b>${g5(rows, 13)}<small>${line}</small><strong class="cnt" data-n="${pts}">${pts}</strong></div>`;
+  $('dare').innerHTML = `<div class="grab"></div>
+    <div class="dh"><button class="ib" data-dback aria-label="Geri"><svg class="i"><use href="#i-back"/></svg></button><h2 id="dareT">Karşılaştırma</h2><button class="ib" data-dclose aria-label="Kapat"><svg class="i"><use href="#i-close"/></svg></button></div>
+    <p class="dsub" style="text-align:center">BiP Kelime · 16 Kasım · kelime hâlâ gizli</p>
+    <div class="vs">${col('Sen', A.avatar || '🦊', 'orange', myRows, r && r.win ? `${r.tries}/5 · ${fmt(r.secs)}` : 'bulamadın', mine, win)}<div class="vmid" aria-hidden="true">VS</div>${col(first, f.av, f.bg, f.rows, `${f.t}/5 · ${fmt(f.s)}`, theirs, !win && !tie)}</div>
+    <div class="vsban ${win ? 'w' : tie ? 't' : 'l'}" role="status">${ban}</div>
+    <button class="btn sec" id="dRem"><svg><use href="#i-bell"/></svg>Rövanş: yarın 12.00'de hatırlat</button>`;
+  say(`${ban} Sen ${mine} puan, ${first} ${theirs} puan.`);
+  if (reduce) return;
+  const box = $('dare'), cols = box.querySelectorAll('.vcol');
+  cols[0].animate([{ transform: 'translateX(-40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+  cols[1].animate([{ transform: 'translateX(40px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+  box.querySelector('.vmid').animate([{ transform: 'scale(0) rotate(-20deg)' }, { transform: 'scale(1.3) rotate(6deg)', offset: .7 }, { transform: 'none' }], { duration: 520, delay: 250, easing: 'ease-out', fill: 'backwards' });
+  box.querySelectorAll('.vcol').forEach((c) => c.querySelectorAll('.g5 i').forEach((i, k) => i.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 200, delay: 350 + k * 22, fill: 'backwards' })));
+  box.querySelectorAll('.cnt').forEach((el) => { const v = +el.dataset.n, t0 = performance.now() + 500; const tick = (now) => { const q = Math.max(0, Math.min(1, (now - t0) / 800)); el.textContent = Math.round(v * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+  const cr = box.querySelector('.crown'); if (cr) cr.animate([{ transform: 'translateY(-30px) rotate(-25deg)', opacity: 0 }, { transform: 'translateY(3px) rotate(8deg)', opacity: 1, offset: .75 }, { transform: 'none', opacity: 1 }], { duration: 560, delay: 1300, easing: 'ease-out', fill: 'backwards' });
+  box.querySelector('.vsban').animate([{ transform: 'scale(.85)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 360, delay: 1350, easing: 'cubic-bezier(.3,1.4,.5,1)', fill: 'backwards' });
+  if (win) setTimeout(() => { confetti(); buzz([40, 30, 120]); }, 1400);
+}
+function dareBot(html, tm) { const b = document.createElement('div'); b.className = 'bub pop'; b.innerHTML = html + `<span class="t">${tm}</span>`; $('msgs').appendChild(b); $('msgs').scrollTop = $('msgs').scrollHeight; }
+function sendDare() {
+  const d = dareState(), names = [...d.sel]; if (!names.length) return;
+  names.forEach((x) => d.sent.add(x)); d.sel.clear(); hideDare();
+  const short = names.map((x) => x.split(' ')[0]).join(', ');
+  A.dmWith = names.includes('Kerem Tunç') ? 'Kerem Tunç' : names[0]; const dmFirst = A.dmWith.split(' ')[0];
+  $('r-dm').innerHTML = `💬 ${dmFirst} ile sohbette gör`; $('r-dm').style.display = 'flex';
+  toast(`<b>Meydan okuma gönderildi:</b> ${short}`); buzz([30]); step('dare');
+  dareBot(`⚔️ <b>${short}</b> için meydan okuman gitti. Kelimeyi söylemedik, yalnız renklerin gitti. Sonuç gelince haber vereceğiz.<br><button class="dmlink" data-dm>💬 ${dmFirst} ile sohbeti aç ›</button>`, '12:07');
+  $('r-dare').innerHTML = '<svg><use href="#i-swords"/></svg>Meydan okundu ✓';
+  const a0 = A, k = DARE.find((x) => x.reply && names.includes(x.n)); if (!k) return;
+  const first = k.n.split(' ')[0];
+  setTimeout(() => { if (A !== a0) return; d.acc.add(k.n); NOTIFS.dareAcc = { e: '⚔️', lbl: 'Meydan okuma', at: 'Anlık', t: `${first} meydan okumanı kabul etti ⚔️`, b: () => 'Aynı kelimeyi çözüyor. Sonuç gelince haber vereceğiz.', go: 'dm' }; notify('dareAcc'); if (cur === 'v-dm') renderDm(); }, reduce ? 300 : 4500);
+  setTimeout(() => {
+    if (A !== a0) return; d.res[k.n] = k.reply; const mine = S.result && S.result.win ? S.result.pts : 0, w = mine > k.reply.p;
+    NOTIFS.dareRes = { e: '🏆', lbl: 'Meydan okuma sonucu', at: 'Anlık', t: `${first} ${k.reply.t}/5'te çözdü · ${w ? 'sen kazandın 🏆' : 'o kazandı'}`, b: () => `Senin puanın ${mine}, onunki ${k.reply.p}. Karşılaştırmayı gör.`, go: 'vs:' + k.n };
+    notify('dareRes'); dareBot(`🏁 <b>${first}</b> ${k.reply.t}/5'te çözdü: ${k.reply.p} puan. ${w ? 'Sen kazandın 🏆' : `${first} kazandı`}`, '12:19');
+    if (cur === 'v-leader') renderLeader(false); if (cur === 'v-dm') renderDm();
+  }, reduce ? 900 : 11000);
+}
+$('r-dare').addEventListener('click', () => { renderDarePick(); showDare(); });
+$('dareDim').addEventListener('click', hideDare);
+$('dare').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t || t.disabled) return; const d = dareState();
+  if (t.dataset.dsel) { const n = t.dataset.dsel; d.sel.has(n) ? d.sel.delete(n) : d.sel.add(n); renderDarePick(); const nb = $('dare').querySelector(`[data-dsel="${n}"]`); if (nb) nb.focus({ preventScroll: true }); return; }
+  if (t.dataset.dvs) { renderVs(t.dataset.dvs); return; }
+  if (t.hasAttribute('data-dback')) { renderDarePick(); return; }
+  if (t.hasAttribute('data-dclose')) { hideDare(); return; }
+  if (t.id === 'dGo') { sendDare(); return; }
+  if (t.id === 'dRem') { hideDare(); toast('<b>Rövanş hatırlatması kuruldu.</b> Yarın 12.00\'de yeni kelimeyle.'); }
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('dare').classList.contains('show')) hideDare(); });
+
+/* ---------- birebir sohbet: meydan okuma iki taraftan nasıl görünür ---------- */
+let DMPOV = 'me';
+const dative = (n) => n + "'" + (/[ıaou][^ıaoueiöü]*$/.test(n.toLocaleLowerCase('tr-TR')) ? 'a' : 'e');
+const possess = (n) => n + "'" + (/[ıaou][^ıaoueiöü]*$/.test(n.toLocaleLowerCase('tr-TR')) ? 'ın' : 'in');
+function renderDm(anim = true) {
+  const d = dareState(), name = A.dmWith || 'Kerem Tunç', f = DARE.find((x) => x.n === name), first = name.split(' ')[0];
+  const them = DMPOV === 'them', r = S.result, myRows = S.res.map((x) => x.join(''));
+  const sent = d.sent.has(name), acc = d.acc.has(name), res = d.res[name];
+  $('dmName').textContent = them ? 'Ömer T.' : name; $('dmAv').textContent = them ? (A.avatar || '🦊') : f.av;
+  $('dmAv').style.background = `var(--av-${them ? 'orange' : f.bg}-bg)`; $('dmSub').textContent = 'çevrimiçi';
+  $('dmPov').innerHTML = `<button class="${them ? '' : 'on'}" data-pov="me" role="tab" aria-selected="${!them}">📱 Senin telefonun</button><button class="${them ? 'on' : ''}" data-pov="them" role="tab" aria-selected="${them}">📱 ${possess(first)} telefonu</button>`;
+  const mine = (who) => (who === 'me') !== them;
+  const B = (who, html, t, cls = '') => `<div class="bub ${mine(who) ? 'out' : ''} ${cls}">${html}<span class="t">${t}${mine(who) ? ' ✓✓' : ''}</span></div>`;
+  const myLine = r && r.win ? `${r.tries}/5 · ${fmt(r.secs)} · <b>${r.pts} puan</b>` : 'Bugünkü kelimeyi bulamadı';
+  let h = '<span class="day">Bugün</span>' + B('them', 'Bu akşam maç var mı? ⚽', '11:40') + B('me', "Var, 21.00'de. Bizde izleyelim", '11:42') + B('them', '👍', '11:43');
+  if (!sent) h += `<span class="sysmsg">Henüz meydan okumadın. Oyunu bitirince sonuç ekranından <b>Meydan oku</b>.</span>`;
+  else {
+    const status = res ? `✓ ${first} oynadı` : acc ? `✓ ${first} kabul etti · oynuyor` : 'Gönderildi · cevap bekleniyor';
+    h += them
+      ? B('me', `<div class="dcard"><span class="dt">⚔️ BiP KELİME · MEYDAN OKUMA</span><b>Ömer T. sana meydan okuyor</b><div class="drow">${g5(myRows, 11)}<span>${myLine}</span></div><span class="dlock">🔒 Kelime gizli. Sen oynayınca karşılaştırma açılır.</span>${res ? `<button class="go sec" data-dmvs>Karşılaştırmayı gör</button>` : '<button class="go" data-dmplay>⚔️ Kabul et ve oyna</button>'}</div>`, '12:07', 'wide')
+      : B('me', `<div class="dcard"><span class="dt">⚔️ BiP KELİME · MEYDAN OKUMA</span><b>${dative(first)} meydan okudun</b><div class="drow">${g5(myRows, 11)}<span>${myLine}</span></div><span class="dlock">🔒 Kelime gitmedi, yalnız renkler · ${status}</span></div>`, '12:07', 'wide');
+    if (acc || res) h += B('them', 'Kabul! 😤 Geliyorum, bekle', '12:09');
+    if (res) {
+      const my = r && r.win ? r.pts : 0, w = my > res.p, tie = my === res.p;
+      const verdict = tie ? '🤝 Berabere' : w ? (them ? 'Ömer kazandı 🏆' : 'Sen kazandın 🏆') : (them ? 'Sen kazandın 🏆' : `${first} kazandı 🏆`);
+      h += B('them', `<div class="dcard"><span class="dt">🏁 BiP KELİME · SONUÇ</span><b>${them ? 'Çözdün' : first + ' çözdü'}: ${res.t}/5 · ${fmt(res.s)}</b><div class="drow">${g5(res.rows, 11)}<span>${res.p} puan<br><b>${verdict}</b> · ${my} – ${res.p}</span></div><button class="go sec" data-dmvs>Karşılaştırmayı gör</button></div>`, '12:19', 'wide');
+      h += B('them', 'Yarın rövanş 😅', '12:20');
+    }
+  }
+  $('dmMsgs').innerHTML = h; $('dmMsgs').scrollTop = $('dmMsgs').scrollHeight;
+  if (anim && !reduce) { const last = [...$('dmMsgs').querySelectorAll('.bub.wide')].pop(); if (last) last.animate([{ transform: 'scale(.85)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 380, easing: 'cubic-bezier(.3,1.4,.5,1)' }); }
+}
+$('dmPov').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-pov]'); if (!b || b.dataset.pov === DMPOV) return; DMPOV = b.dataset.pov; renderDm(false);
+  if (!reduce) $('dmMsgs').animate([{ transform: `translateX(${DMPOV === 'them' ? 40 : -40}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 300, easing: 'cubic-bezier(.2,.8,.2,1)' });
+  say(DMPOV === 'them' ? `${possess((A.dmWith || 'Kerem Tunç').split(' ')[0])} telefonundan görünüm` : 'Senin telefonundan görünüm');
+});
+$('dmMsgs').addEventListener('click', (e) => {
+  const name = A.dmWith || 'Kerem Tunç', first = name.split(' ')[0];
+  if (e.target.closest('[data-dmvs]')) { renderVs(name); showDare(); return; }
+  if (e.target.closest('[data-dmplay]')) toast(`<b>${possess(first)} telefonunda</b> aynı kelime açılır. Sonuç gelince iki tarafa da karşılaştırma düşer.`);
+});
+$('msgs').addEventListener('click', (e) => { if (e.target.closest('[data-dm]')) go('v-dm'); });
+$('r-dm').addEventListener('click', () => closeGame(false).then(() => go('v-dm')));
+// sonuç sayfası: göndermeden kapat (✕, karartma, Esc)
+$('r-close').addEventListener('click', () => closeGame(false));
+let dimA11y = false; $('dim').addEventListener('pointerdown', () => { dimA11y = $('a11ySheet').classList.contains('show'); });
+$('dim').addEventListener('click', () => { if (!dimA11y && $('sheet').classList.contains('show')) closeGame(false); dimA11y = false; });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('sheet').classList.contains('show') && !$('a11ySheet').classList.contains('show') && !$('dare').classList.contains('show')) closeGame(false); }, true);
+
 /* ---------- tema: açık / koyu / sistem (BiP'ten ?theme= ile de gelir) ---------- */
 let THEME = new URLSearchParams(location.search).get('theme') || 'light';
 const darkMQ = matchMedia('(prefers-color-scheme: dark)');

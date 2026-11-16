@@ -857,7 +857,7 @@ $('psave').addEventListener('click', () => { const v = $('pname').value.trim() |
 
 /* yeni BiP Kelime tasarımı (gömülü prototip) ↔ bugünkü tasarım */
 let KP = null; // { win, tries, secs } oynanınca prototipten gelir
-function kPreview() { return KP ? (KP.win ? `${KP.tries}/5 · ${fmtS(KP.secs)}'de çözdün${KP.together ? ' · birlikte' : ''}` : 'Oynadın, serin sürüyor') + (KP.streak ? ` · 🔥 ${KP.streak}` : '') : '🧩 Günün kelimesi hazır · 🔥 5'; }
+function kPreview() { return KP ? (KP.win ? `${KP.tries}/5 · ${fmtS(KP.secs)}'de çözdün` : 'Oynadın, serin sürüyor') + (KP.streak ? ` · 🔥 ${KP.streak}` : '') : '🧩 Günün kelimesi hazır · 🔥 5'; }
 const fmtS = (s) => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
 var TF = 'tumu', CATF = 'tumu', detailG = 'kelime';
 const CATS = [['tumu', 'Tümü'], ['oyun', '🎮 Oyunlar'], ['egitim', 'Eğitim'], ['haber', 'Haber'], ['firsat', 'Fırsatlar'], ['yasam', 'Yaşam']];
